@@ -1,0 +1,38 @@
+<style>
+  .row-div {
+  display: flex;
+}
+/* Having some margin to make the two divs some distance */
+.row-div>div {
+  margin-right: 5px;
+}
+.btn {
+  background-color: #624cab;
+  border-color: #624cab;
+}
+.btn:hover {
+  background-color: #a58cf6;
+}
+</style>
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-12 col-xl-12">
+      <div class="row-div">
+        <h3>What's on your mind?! &nbsp;&nbsp;</h3>
+        <form action="{% url 'new_post' %}" method="post">
+          {% csrf_token %}
+          {% include 'partials/bootstrap_form.html' with form=form %}
+          <button type="submit" class="btn btn-primary">Write blog</button>
+        </form>
+      </div>
+      <div>
+        <br>
+        <p><b>My posts</b></p>
+        {% include 'posts.html' with post=post %}              
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

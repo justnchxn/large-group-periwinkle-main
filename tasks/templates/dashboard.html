@@ -1,0 +1,15 @@
+{% extends 'base_content.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-3 col-xl-3">
+      <h1>Dashboard</h1>  
+      {% include 'partials/right_nav.html' %}  
+    </div>
+    <div class="col-xs-12 col-lg-9 col-xl-9">
+      <div style="padding-bottom: 10px;"></div>
+      {% include 'feed.html' with post=post%}
+    </div>
+  </div>
+</div>
+{% endblock %}

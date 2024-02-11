@@ -1,0 +1,15 @@
+<h2>{{ user.username }}</h2> 
+<ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Friends</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'store' %}">Store</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'profile' %}">Settings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'log_out' %}">Log out</a>
+    </li>
+  </ul>

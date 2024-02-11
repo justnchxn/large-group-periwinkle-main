@@ -1,0 +1,77 @@
+{% extends 'base_content.html' %}
+{% block content %}
+{% load static %}
+
+<style> 
+h1 {
+  color: white;
+}
+.grad {
+  background-image: linear-gradient(to bottom right, #c1cefe, #a0ddff);
+}
+.btn {
+  background-color: #624cab;
+}
+.row {
+  padding-bottom: 20px;
+}
+
+.bottomNav {
+  background-color: #624cab;  
+}
+
+.bottomNav span {
+  padding-right: 30px;
+}
+
+.bottomText {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: gray;
+
+}
+</style>
+
+<body class="grad">
+<div class="container" >
+    <div class="row">
+        <h1>Store</h1>
+
+          {% for i in "123456" %}
+          <div class="col">
+            <div class="card bg-light mb-3" style="width: 18rem;">
+                <img class="card-img-top" src="../static/card287x180vista.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Smiley Face</h5>
+                  <p class="card-text">💲: 10 coins.</p>
+                  <a href="#" class="btn btn-primary">Purchase</a>
+                </div>
+              </div>
+          </div>
+            
+          {% endfor %}
+        
+    </div>
+    <div class="row"></div>
+    <div class="row"></div>
+  </div>
+
+  <nav class="navbar fixed-bottom py-0 bottomNav" style="width:15%; margin-left: auto">
+    <a class="navbar-brand" href="#"></a>
+    <span class="navbar-text bottomText">
+      <a class="coins" href="#">💰 Coins: 100</a>
+      
+    </span>
+  </nav>
+  
+</body>
+
+{% endblock %}

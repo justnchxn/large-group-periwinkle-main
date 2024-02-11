@@ -1,0 +1,16 @@
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <div class="col">
+        <div class="card bg-light mb-3">
+            <img class="card-img-top" src="../static/card287x180vista.png" alt="Card image cap" height="200px">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.text }}</p>
+              <p>{{ post.author }}, {{ post.created_at }}</p>
+            </div>
+          </div>
+      </div>      
+    </div>
+  {% endfor %}
+{% endblock %}
