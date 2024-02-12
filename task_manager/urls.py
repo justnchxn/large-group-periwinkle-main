@@ -32,4 +32,5 @@ urlpatterns = [
     path('posts/', views.display_posts, name='display_posts'),
     path('store/', views.store, name='store'),
     path('make_post/', views.make_post, name='make_post'),
+    path('themes/', views.themes, name='themes')
 ]

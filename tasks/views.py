@@ -12,6 +12,7 @@ from tasks.forms import LogInForm, PasswordForm, UserForm, SignUpForm, PostForm
 from tasks.helpers import login_prohibited
 from .models import Post, User
 from django.http import HttpResponseForbidden
+import random
 
 @login_required
 def dashboard(request):
@@ -186,3 +187,9 @@ def store(request):
 
 def make_post(request):
     return render(request, 'make_post.html', {})
+
+def themes(request):
+    colours = ['lightcoral', 'mistyrose', 'lightsalmon', 'peachpuff', 'darkorange', 'lemonchiffon',]
+    random_colour = random.choice(colours)
+    request.session['background_colour'] = random_colour
+    return render(request, 'themes.html', {})
