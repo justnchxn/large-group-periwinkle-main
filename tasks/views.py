@@ -12,6 +12,7 @@ from tasks.forms import LogInForm, PasswordForm, UserForm, SignUpForm, PostForm
 from tasks.helpers import login_prohibited
 from .models import Post, User
 from django.http import HttpResponseForbidden
+from django.http import HttpResponseRedirect
 import random
 
 @login_required
@@ -161,6 +162,9 @@ def feed(request):
     return render(request, 'feed.html', {'form': form, 'posts':posts})
 
 def new_post(request):
+    colours = ['lightcoral', 'mistyrose', 'lightsalmon', 'peachpuff', 'darkorange', 'lemonchiffon',]
+    random_colour = random.choice(colours)
+    request.session['background_colour'] = random_colour
     if request.method == 'POST':
         if request.user.is_authenticated:
             current_user = request.user
@@ -186,10 +190,18 @@ def store(request):
     return render(request, 'store.html', {})
 
 def make_post(request):
-    return render(request, 'make_post.html', {})
+    selected_colour = request.session.get('background_colour', 'white')
+    return render(request, 'make_post.html', {'selected_colour': selected_colour})
 
 def themes(request):
-    colours = ['lightcoral', 'mistyrose', 'lightsalmon', 'peachpuff', 'darkorange', 'lemonchiffon',]
-    random_colour = random.choice(colours)
-    request.session['background_colour'] = random_colour
-    return render(request, 'themes.html', {})
+    return render(request, )    
+
+def themes2(request):
+    selected_colour = request.session.get('background_colour', 'white')
+    return render(request, 'themes2.html', {'selected_colour': selected_colour})
+
+def change_colour(request):
+    if request.method == 'POST':
+        colour = request.POST.get('colour', 'white')
+        request.session['background_colour'] = colour
+    return redirect('make_post')

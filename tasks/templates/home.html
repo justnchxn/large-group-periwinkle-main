@@ -1,23 +1,60 @@
-{% extends 'base.html' %}
-{% block body %}
-  <div class="container vh-100">
-    <div class="row h-100">
-      <div class="col-12 my-auto">
-        <div class="card cover-card offset-sm-2 offset-md-4 offset-lg-7">
-          <h1 class="cover-heading">Task Manager</h1>
-          <p class="cover-text">A task manager application by Team <i>Insert team name here (or revise this home screen as you see fit)</i></p>
-          <p>
-            <a href='{% url 'sign_up' %}' class="btn btn-lg btn-secondary">
-              Sign up
-            </a>
-          </p>
-          <p>
-            <a href='{% url 'log_in' %}' class="btn btn-lg btn-secondary">
-              Log in
-            </a>
-          </p>
-        </div>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E6E6FA; 
+            color: #4B0082; 
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 100px auto;
+            background-color: #FFF; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {  
+            text-align: center;
+        }
+        h2 {
+            font-size: 20px;
+            text-align: center; 
+            display: inline;
+        }
+        h3{
+            font-size: 20px;
+            ​text-align: center;
+            display: inline;
+            padding-left: 450px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to our Digital Journaling Page!</h1>
+        <img src="{% static 'journal.png' %}" width="500" height="333" class="center">
+        <div style="clear: both">
+          <a href='{% url 'log_in' %}' class="btn btn-lg btn-secondary">
+          <h2>Log in</h2>
+          <a href='{% url 'sign_up' %}' class="btn btn-lg btn-secondary">
+          <h3>Sign up</h3>
+        </form>
       </div>
+      <hr/>
+      <a>
+        By Team *Team Name*
+      </a>
     </div>
-  </div>
-{% endblock %}
+</body>
+</html>

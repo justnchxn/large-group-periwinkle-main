@@ -1,0 +1,28 @@
+{% extends 'base_content.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <title>Background Colour Selector</title>
+</head>
+<body style="background-colour: {{ selected_colour }}">
+    <h1>Background Colour Selector</h1>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Select a theme:
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample"    >
+        <div class="card card-body">
+            <form action="{% url 'change_colour' %}" method="post">
+                {% csrf_token %}
+                <select name="colour" id="colour" onchange="this.form.submit();">
+                    <option value="white">White</option>
+                    <option value="lightblue">Light Blue</option>
+                    <option value="lightgreen">Light Green</option>
+                    <option value="lightpink">Light Pink</option>
+                </select>
+            </form>
+        </div>
+      </div>
+</body>
+{% endblock %}
