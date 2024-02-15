@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from tasks import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -32,5 +33,7 @@ urlpatterns = [
     path('posts/', views.display_posts, name='display_posts'),
     path('store/', views.store, name='store'),
     path('make_post/', views.make_post, name='make_post'),
-    path('themes/', views.themes, name='themes')
+    path('themes/', views.themes, name='themes'),
+    path('themes2/', views.themes2, name='themes2'),
+    path('change-colour/', views.change_colour, name='change_colour')
 ]
